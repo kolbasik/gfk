@@ -1,0 +1,16 @@
+{
+  "name": "GFK_TESTS",
+  "version": "1.0.0",
+  "author": "kolbasik",
+  "license": "MIT",
+  "scripts": {
+    "debug": "gulp server",
+    "test": "karma start"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-using": "0.0.1",
+    "gulp-watch": "^4.2.4",
+    "gulp-webserver": "^0.9.1"
+  }
+}
