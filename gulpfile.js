@@ -1,12 +1,13 @@
 var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     watch = require('gulp-watch'),
-    using = require('gulp-using');
+    using = require('gulp-using'),
+    ts = require('gulp-typescript');
 
 var paths = {
     dest: 'public',
     styles: ['source/**/*.css'],
-    scripts: ['source/**/*.js'],
+    scripts: ['source/**/*.ts', 'typings/**/*.d.ts'],
     templates: ['source/**/*.html', 'source/**/*.csv']
 };
 
@@ -17,8 +18,13 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-    return gulp.src(paths.scripts)
+    var options = {
+        target: 'ES5',
+        module: 'amd'
+    };
+    return gulp.src(paths.scripts, { base: 'source' })
         .pipe(using())
+        .pipe(ts(options))
         .pipe(gulp.dest(paths.dest));
 });
 

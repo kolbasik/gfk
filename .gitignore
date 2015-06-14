@@ -2,9 +2,10 @@
 .idea
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-public
+# public
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 bower_components
+typings
