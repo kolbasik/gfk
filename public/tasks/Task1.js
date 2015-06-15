@@ -1,23 +1,23 @@
 /// <reference path="../core.d.ts" />
 define(["require", "exports", "../core/GFK"], function (require, exports, GFK) {
-    function Bizz(value) {
-        return (value % 3 == 0) ? 'Bizz' : null;
-    }
-    function Appz(value) {
-        return (value % 5 == 0) ? 'Appz' : null;
-    }
+    var mappings = {
+        'Bizz': function (value) { return value % 3 == 0; },
+        'Appz': function (value) { return value % 5 == 0; },
+    };
     function map(i) {
-        var value = [Bizz(i), Appz(i)].join('');
+        var reduce = function (message, key) { return ((mappings[key](i) && (message += key)), message); };
+        var value = Object.keys(mappings).reduce(reduce, '');
         return { key: i, value: value };
     }
     function reduce(acc, kvp) {
-        if (kvp.value) {
-            acc.push(kvp.key + ": " + kvp.value);
-        }
-        return acc;
+        return (kvp.value && acc.push(kvp.value)), acc;
     }
+    function execute(start, count) {
+        return GFK.range(start, count).map(map).reduce(reduce, []);
+    }
+    exports.execute = execute;
     function start(trace) {
-        GFK.range(1, 100).map(map).reduce(reduce, []).forEach(trace);
+        execute(1, 100).forEach(trace);
     }
     exports.start = start;
 });

@@ -4,14 +4,25 @@
   "author": "kolbasik",
   "license": "MIT",
   "scripts": {
-    "debug": "gulp server",
+    "preinstall": "npm install -g gulp tsd karma-cli && tsd reinstall",
+    "build": "gulp build",
+    "start": "gulp serve",
     "test": "karma start"
   },
   "devDependencies": {
+    "chai": "^3.0.0",
     "gulp": "^3.8.11",
     "gulp-typescript": "^2.7.6",
     "gulp-using": "0.0.1",
     "gulp-watch": "^4.2.4",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "karma": "^0.12.36",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-requirejs": "^0.2.2",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17",
+    "requirejs": "^2.1.18"
   }
 }

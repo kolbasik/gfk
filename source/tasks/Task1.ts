@@ -2,26 +2,25 @@
 
 import GFK = require("../core/GFK");
 
-function Bizz(value: number) : string {
-    return (value % 3 == 0) ? 'Bizz' : null;
-}
-
-function Appz(value: number) : string {
-    return (value % 5 == 0) ? 'Appz' : null;
-}
+var mappings = {
+    'Bizz': (value: number) => value % 3 == 0,
+    'Appz': (value: number) => value % 5 == 0,
+};
 
 function map(i: number) : GFK.KVP<number, string> {
-    var value = [Bizz(i), Appz(i)].join('');
+    var reduce = (message, key) => ((mappings[key](i) && (message += key)), message);
+    var value = Object.keys(mappings).reduce(reduce, '');
     return { key: i, value: value };
 }
 
 function reduce(acc: string[], kvp: GFK.KVP<number, string>) : string[] {
-    if (kvp.value) {
-        acc.push(kvp.key + ": " + kvp.value);
-    }
-    return acc;
+    return (kvp.value && acc.push(kvp.value)), acc;
+}
+
+export function execute(start: number, count: number): string[] {
+    return GFK.range(start, count).map(map).reduce(reduce, []);
 }
 
 export function start(trace: (text: string) => void) {
-    GFK.range(1, 100).map(map).reduce(reduce, []).forEach(trace);
+    execute(1, 100).forEach(trace);
 }
