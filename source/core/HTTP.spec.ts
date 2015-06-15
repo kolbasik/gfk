@@ -8,7 +8,7 @@ describe('HTTP: ', function () {
     var expect = chai.expect;
 
     describe('get', function () {
-        var source = 'http://google.com';
+        var source = '/base/public/core/HTTP.js';
 
         it('should exist', function () {
             expect(HTTP.get).to.be.ok;
@@ -18,9 +18,7 @@ describe('HTTP: ', function () {
             if (typeof Promise === 'undefined') {
                 done();
             }
-            HTTP.get(source).then(function(){
-               done();
-            });
+            HTTP.get(source).then(() => done());
         });
     });
 

@@ -2,7 +2,7 @@ define(["require", "exports", 'chai', './HTTP'], function (require, exports, cha
     describe('HTTP: ', function () {
         var expect = chai.expect;
         describe('get', function () {
-            var source = 'http://google.com';
+            var source = '/base/public/core/HTTP.js';
             it('should exist', function () {
                 expect(HTTP.get).to.be.ok;
             });
@@ -10,9 +10,7 @@ define(["require", "exports", 'chai', './HTTP'], function (require, exports, cha
                 if (typeof Promise === 'undefined') {
                     done();
                 }
-                HTTP.get(source).then(function () {
-                    done();
-                });
+                HTTP.get(source).then(function () { return done(); });
             });
         });
     });
