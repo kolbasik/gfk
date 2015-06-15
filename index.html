@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GFK: small test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+    <style>
+        .console { height: 100px; overflow-y: scroll; background-color: #ddd; }
+        .chart { min-width: 350px; height: 400px; margin: 0 auto }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1>GFK: small test</h1>
+        <section data-item="task_1">
+            <p>1) Write a program in any language that prints the numbers from 1 to 100. But for multiples of three print "Bizz" instead of the number and for the multiples of five print "Appz". For numbers which are multiples of both three and five print "BizzAppz".</p>
+            <pre class="console"></pre>
+        </section>
+        <section data-item="task_2">
+            <p>2) Write a class (prototype) in JavaScript, with at least one method, and another class which extends the previous class. Make sure that when an instance is created of the latter, it returns true for an instanceof-check for both prototypes and that the method on the first prototype can be invoked.</p>
+            <pre class="console"></pre>
+        </section>
+        <section data-item="task_3">
+            <p>3) Using the attached data, create a chart in JavaScript which shows a trend over time of the percentage of responses for that day which have a value of "yes" for the "answer" column.</p>
+            <div class="chart"></div>
+            <pre class="console"></pre>
+        </section>
+        <section data-item="task_4">
+            <p>4) Use the two url's shown below to retrieve the strings they return and after they both complete, concatenate both strings in the correct order with a space in between and display the result.</p>
+            <ul>
+                <li>http://cdn.gfkdaphne.com/tests/async.php?a=1</li>
+                <li>http://cdn.gfkdaphne.com/tests/async.php?a=2</li>
+            </ul>
+            <pre class="console"></pre>
+        </section>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js"  data-main="app.js"></script>
+</body>
+</html>
