@@ -16,6 +16,12 @@
     },
     "highcharts/highcharts.d.ts": {
       "commit": "230b346dad577c91af8db9f0a1db26697d2dd5bd"
+    },
+    "mocha/mocha.d.ts": {
+      "commit": "4502a738b25345b63a24d4ff4695cd4a63f0ec65"
+    },
+    "chai/chai.d.ts": {
+      "commit": "4502a738b25345b63a24d4ff4695cd4a63f0ec65"
     }
   }
 }
