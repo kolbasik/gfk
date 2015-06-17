@@ -1,5 +1,4 @@
 /// <reference path="../../typings/tsd.d.ts" />
-import chai = require('chai');
 import GFK = require('./GFK');
 
 describe('GFK: ', function () {

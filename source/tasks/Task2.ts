@@ -1,6 +1,6 @@
 /// <reference path="../core.d.ts" />
 
-import GFK = require("../core/GFK");
+import GFK = require("./../core/GFK");
 
 var Human = function () {};
 Human.prototype.whoami = function() {

@@ -1,5 +1,4 @@
 /// <reference path="../../typings/tsd.d.ts" />
-import chai = require('chai');
 import Task1 = require('./Task1');
 
 describe('Task1: ', function () {

@@ -2,7 +2,9 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     watch = require('gulp-watch'),
     using = require('gulp-using'),
-    ts = require('gulp-typescript');
+    ts = require('gulp-typescript'),
+    browserify = require('browserify'),
+    source = require("vinyl-source-stream");
 
 var paths = {
     dest: 'public',
@@ -20,7 +22,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     var options = {
         target: 'ES5',
-        module: 'amd'
+        module: 'commonjs'
     };
     return gulp.src(paths.scripts, { base: 'source' })
         .pipe(using())
@@ -35,6 +37,18 @@ gulp.task('templates', function() {
 });
 
 gulp.task('build', ['styles', 'scripts', 'templates']);
+
+gulp.task('pack', ['build'], function() {
+    var options = {
+        basedir: '.',
+        dest: './' + paths.dest
+    };
+    var b = browserify(options);
+    b.add(options.dest + '/app.js');
+    return b.bundle()
+        .pipe(source('app.pack.js'))
+        .pipe(gulp.dest(options.dest));
+});
 
 gulp.task('serve', ['build'], function() {
     var all = function (source) {

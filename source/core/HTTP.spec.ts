@@ -1,5 +1,4 @@
 /// <reference path="../../typings/tsd.d.ts" />
-import chai = require('chai');
 import HTTP = require('./HTTP');
 
 declare var Promise: any;

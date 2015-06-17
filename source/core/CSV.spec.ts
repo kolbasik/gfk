@@ -1,5 +1,4 @@
 /// <reference path="../../typings/tsd.d.ts" />
-import chai = require('chai');
 import CSV = require('./CSV');
 
 describe('CSV: ', function () {

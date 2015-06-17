@@ -1,11 +1,8 @@
 /// <reference path="../core.d.ts" />
 
-import _ = require("lodash");
-import $ = require("jquery");
-import highcharts = require("highcharts");
-import GFK = require("../core/GFK");
-import HTTP = require("../core/HTTP");
-import CSV = require("../core/CSV");
+import GFK = require("./../core/GFK");
+import HTTP = require("./../core/HTTP");
+import CSV = require("./../core/CSV");
 
 export function start(trace: (text: string) => void) {
     trace('data.csv loading...');

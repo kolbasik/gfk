@@ -4,12 +4,14 @@
   "author": "kolbasik",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npm install -g gulp tsd karma-cli && tsd reinstall",
+    "preinstall": "npm install -g gulp tsd karma-cli browserify && tsd reinstall",
     "build": "gulp build",
+    "pack": "browserify public/app.js > public/app.pack.js",
     "start": "gulp serve",
     "test": "karma start"
   },
   "devDependencies": {
+    "browserify": "^10.2.4",
     "chai": "^3.0.0",
     "gulp": "^3.8.11",
     "gulp-typescript": "^2.7.6",
@@ -19,11 +21,13 @@
     "karma": "^0.12.36",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.1.12",
+    "karma-commonjs": "0.0.13",
     "karma-mocha": "^0.1.10",
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-requirejs": "^0.2.2",
     "mocha": "^2.2.5",
     "phantomjs": "^1.9.17",
-    "requirejs": "^2.1.18"
+    "requirejs": "^2.1.18",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

@@ -1,6 +1,6 @@
 /// <reference path="../core.d.ts" />
 
-import GFK = require("../core/GFK");
+import GFK = require("./../core/GFK");
 
 var mappings = {
     'Bizz': (value: number) => value % 3 == 0,
